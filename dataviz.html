@@ -313,45 +313,10 @@ $(document).ready(function () {
 </div>
 
 
-<pre class="r"><code>library(readxl)
-library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.0.0     v purrr   0.2.5
-## v tibble  1.4.2     v dplyr   0.7.6
-## v tidyr   0.8.1     v stringr 1.3.1
-## v readr   1.1.1     v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(tidyquant)</code></pre>
-<pre><code>## Loading required package: lubridate</code></pre>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:base&#39;:
-## 
-##     date</code></pre>
-<pre><code>## Loading required package: PerformanceAnalytics</code></pre>
-<pre><code>## Loading required package: xts</code></pre>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre><code>## 
-## Attaching package: &#39;xts&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     first, last</code></pre>
-<pre><code>## 
-## Attaching package: &#39;PerformanceAnalytics&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     legend</code></pre>
-<pre><code>## Loading required package: quantmod</code></pre>
-<pre><code>## Loading required package: TTR</code></pre>
-<pre><code>## Version 0.4-0 included new data defaults. See ?getSymbols.</code></pre>
-<pre class="r"><code>library(xts)</code></pre>
+<pre class="r"><code>library(readxl,warn.conflicts=F, quietly=T)
+library(tidyverse, warn.conflicts=F, quietly=T)
+library(tidyquant, warn.conflicts=F, quietly=T)
+library(xts, warn.conflicts=F, quietly=T)</code></pre>
 <pre class="r"><code>tab013 &lt;- read_excel(&quot;sed17-sr-tab013.xlsx&quot;, skip = 3)
 options( warn = -1 )</code></pre>
 <pre class="r"><code>years &lt;- list()

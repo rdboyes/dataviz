@@ -12,11 +12,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-library(readxl)
-library(tidyverse)
-library(tidyquant)
-library(xts)
+```{r echo=T, results='hide', warning = FALSE, message = FALSE}
+library(readxl,warn.conflicts=F, quietly=T)
+library(tidyverse, warn.conflicts=F, quietly=T)
+library(tidyquant, warn.conflicts=F, quietly=T)
+library(xts, warn.conflicts=F, quietly=T)
 ```
 
 ```{r}

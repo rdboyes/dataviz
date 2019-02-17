@@ -12,105 +12,10 @@ output:
 
 
 ```r
-library(readxl)
-library(tidyverse)
-```
-
-```
-## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
-```
-
-```
-## v ggplot2 3.0.0     v purrr   0.2.5
-## v tibble  1.4.2     v dplyr   0.7.6
-## v tidyr   0.8.1     v stringr 1.3.1
-## v readr   1.1.1     v forcats 0.3.0
-```
-
-```
-## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-```
-
-```r
-library(tidyquant)
-```
-
-```
-## Loading required package: lubridate
-```
-
-```
-## 
-## Attaching package: 'lubridate'
-```
-
-```
-## The following object is masked from 'package:base':
-## 
-##     date
-```
-
-```
-## Loading required package: PerformanceAnalytics
-```
-
-```
-## Loading required package: xts
-```
-
-```
-## Loading required package: zoo
-```
-
-```
-## 
-## Attaching package: 'zoo'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     as.Date, as.Date.numeric
-```
-
-```
-## 
-## Attaching package: 'xts'
-```
-
-```
-## The following objects are masked from 'package:dplyr':
-## 
-##     first, last
-```
-
-```
-## 
-## Attaching package: 'PerformanceAnalytics'
-```
-
-```
-## The following object is masked from 'package:graphics':
-## 
-##     legend
-```
-
-```
-## Loading required package: quantmod
-```
-
-```
-## Loading required package: TTR
-```
-
-```
-## Version 0.4-0 included new data defaults. See ?getSymbols.
-```
-
-```r
-library(xts)
+library(readxl,warn.conflicts=F, quietly=T)
+library(tidyverse, warn.conflicts=F, quietly=T)
+library(tidyquant, warn.conflicts=F, quietly=T)
+library(xts, warn.conflicts=F, quietly=T)
 ```
 
 
