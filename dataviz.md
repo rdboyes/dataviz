@@ -11,7 +11,113 @@ output:
 
 
 
+```r
+library(readxl)
+library(tidyverse)
+```
 
+```
+## -- Attaching packages ------------------------------------------------------------------------ tidyverse 1.2.1 --
+```
+
+```
+## v ggplot2 3.0.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.6
+## v tidyr   0.8.1     v stringr 1.3.1
+## v readr   1.1.1     v forcats 0.3.0
+```
+
+```
+## -- Conflicts --------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+```
+
+```r
+library(tidyquant)
+```
+
+```
+## Loading required package: lubridate
+```
+
+```
+## 
+## Attaching package: 'lubridate'
+```
+
+```
+## The following object is masked from 'package:base':
+## 
+##     date
+```
+
+```
+## Loading required package: PerformanceAnalytics
+```
+
+```
+## Loading required package: xts
+```
+
+```
+## Loading required package: zoo
+```
+
+```
+## 
+## Attaching package: 'zoo'
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric
+```
+
+```
+## 
+## Attaching package: 'xts'
+```
+
+```
+## The following objects are masked from 'package:dplyr':
+## 
+##     first, last
+```
+
+```
+## 
+## Attaching package: 'PerformanceAnalytics'
+```
+
+```
+## The following object is masked from 'package:graphics':
+## 
+##     legend
+```
+
+```
+## Loading required package: quantmod
+```
+
+```
+## Loading required package: TTR
+```
+
+```
+## Version 0.4-0 included new data defaults. See ?getSymbols.
+```
+
+```r
+library(xts)
+```
+
+
+```r
+tab013 <- read_excel("sed17-sr-tab013.xlsx", skip = 3)
+options( warn = -1 )
+```
 
 
 ```r
@@ -27,17 +133,15 @@ for(i in 1:(ncol(tab013) - 1)){
 }
 
 Clean_Data <- do.call(rbind.data.frame, years)
-head(Clean_Data)
+glimpse(Clean_Data)
 ```
 
 ```
-##                                           Field Grads       Year
-## 1                                    All fields 48777 2008-01-01
-## 2                                 Life sciences 11086 2008-01-01
-## 3   Agricultural sciences and natural resources  1198 2008-01-01
-## 4                        Agricultural economics   111 2008-01-01
-## 5 Agricultural and horticultural plant breeding    28 2008-01-01
-## 6                  Agricultural animal breeding     3 2008-01-01
+## Observations: 3,830
+## Variables: 3
+## $ Field <fct> All fields, Life sciences, Agricultural sciences and nat...
+## $ Grads <dbl> 48777, 11086, 1198, 111, 28, 3, 68, 41, 18, 77, 182, 52,...
+## $ Year  <date> 2008-01-01, 2008-01-01, 2008-01-01, 2008-01-01, 2008-01...
 ```
 
 
@@ -80,7 +184,7 @@ epi_plot
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![](dataviz_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](dataviz_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ```r
 comparison_plot
@@ -90,7 +194,7 @@ comparison_plot
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![](dataviz_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
+![](dataviz_files/figure-html/unnamed-chunk-4-2.png)<!-- -->
 
 ```r
 ggsave(epi_plot, file = "epi.png")
