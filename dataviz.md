@@ -8,23 +8,13 @@ output:
   pdf_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(readxl)
-library(readxl)
-library(tidyverse)
-library(tidyquant)
-library(xts)
-```
-
-```{r, include = FALSE}
-tab013 <- read_excel("sed17-sr-tab013.xlsx", skip = 3)
-options( warn = -1 )
-```
 
 
-```{r}
+
+
+
+
+```r
 years <- list()
 
 
@@ -40,8 +30,19 @@ Clean_Data <- do.call(rbind.data.frame, years)
 head(Clean_Data)
 ```
 
+```
+##                                           Field Grads       Year
+## 1                                    All fields 48777 2008-01-01
+## 2                                 Life sciences 11086 2008-01-01
+## 3   Agricultural sciences and natural resources  1198 2008-01-01
+## 4                        Agricultural economics   111 2008-01-01
+## 5 Agricultural and horticultural plant breeding    28 2008-01-01
+## 6                  Agricultural animal breeding     3 2008-01-01
+```
 
-```{R}
+
+
+```r
 labels <- c("Epidemiologyd" = "Epidemiology",
             "Public health" = "Public Health",
             "Biometrics and biostatistics" = "Biometrics and Biostatistics",
@@ -73,11 +74,40 @@ comparison_plot <- Clean_Data %>% filter(Field %in% c("Epidemiologyd",
 
 
 epi_plot
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+![](dataviz_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+
+```r
 comparison_plot
+```
 
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+![](dataviz_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
+
+```r
 ggsave(epi_plot, file = "epi.png")
-ggsave(comparison_plot, file = "comparison.png")
+```
 
+```
+## Saving 7 x 5 in image
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+```r
+ggsave(comparison_plot, file = "comparison.png")
+```
+
+```
+## Saving 7 x 5 in image
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 
